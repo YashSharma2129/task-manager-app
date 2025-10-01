@@ -1,0 +1,27 @@
+[build]
+  base = "frontend"
+  command = "yarn install && yarn build"
+  publish = "frontend/dist"
+
+[build.environment]
+  VITE_API_URL = "https://task-manager-app-e27v.onrender.com"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Content-Type = "application/javascript"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Content-Type = "application/javascript"
+
+[[headers]]
+  for = "/*.mjs"
+  [headers.values]
+    Content-Type = "application/javascript"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
