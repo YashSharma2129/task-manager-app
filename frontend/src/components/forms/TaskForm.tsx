@@ -13,7 +13,7 @@ import {
   CircularProgress,
   Typography,
 } from '@mui/material';
-import { useTaskContext } from '@/contexts/TaskContext';
+import { useTaskContext } from '@/hooks/useTaskContext';
 import { createTaskSchema, type CreateTaskFormData } from '@/lib/validation';
 import { TaskStatus } from '@/types';
 

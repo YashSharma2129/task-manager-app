@@ -1,4 +1,5 @@
 import axios, { type AxiosInstance, type InternalAxiosRequestConfig, type AxiosResponse } from 'axios';
+import { toast } from 'sonner';
 import { API_BASE_URL } from '@/utils/constants';
 
 class ApiClient {
@@ -38,6 +39,7 @@ class ApiClient {
       (error: unknown) => {
         if (axios.isAxiosError(error) && error.response?.status === 401) {
           this.clearToken();
+          toast.error('Session expired. Please log in again.');
           window.location.href = '/login';
         }
         
@@ -46,6 +48,12 @@ class ApiClient {
           : error instanceof Error 
             ? error.message 
             : 'An error occurred';
+        
+        // Only show toast for non-401 errors (401 is handled above)
+        if (!axios.isAxiosError(error) || error.response?.status !== 401) {
+          toast.error(errorMessage);
+        }
+        
         return Promise.reject(new Error(errorMessage));
       }
     );

@@ -1,33 +1,12 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { toast } from 'sonner';
 import { taskService } from '@/api/taskService';
+import { TaskContext, type TaskContextType } from './TaskContextDefinition';
 import type { Task, CreateTaskData, UpdateTaskData, PaginationInfo } from '@/types';
 
 type SortOrder = 'asc' | 'desc';
 
-interface TaskContextType {
-  tasks: Task[];
-  pagination: PaginationInfo | null;
-  isLoading: boolean;
-  isCreating: boolean;
-  error: string | null;
-  sortOrder: SortOrder;
-  setSortOrder: (sortOrder: SortOrder) => void;
-  createTask: (data: CreateTaskData) => Promise<void>;
-  updateTask: (id: string, data: UpdateTaskData) => Promise<void>;
-  deleteTask: (id: string) => Promise<void>;
-  refreshTasks: () => Promise<void>;
-  loadMoreTasks: () => Promise<void>;
-}
-
-const TaskContext = createContext<TaskContextType | undefined>(undefined);
-
-export const useTaskContext = () => {
-  const context = useContext(TaskContext);
-  if (context === undefined) {
-    throw new Error('useTaskContext must be used within a TaskProvider');
-  }
-  return context;
-};
+// Hook moved to separate file to fix fast refresh
 
 interface TaskProviderProps {
   children: React.ReactNode;
@@ -68,8 +47,11 @@ export const TaskProvider: React.FC<TaskProviderProps> = ({ children }) => {
       setError(null);
       const newTask = await taskService.createTask(data);
       setTasks(prev => [newTask, ...prev]);
+      toast.success('Task created successfully!', { id: 'task-operation' });
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to create task');
+      const errorMessage = err instanceof Error ? err.message : 'Failed to create task';
+      setError(errorMessage);
+      toast.error(errorMessage);
       throw err;
     } finally {
       setIsCreating(false);
@@ -82,8 +64,11 @@ export const TaskProvider: React.FC<TaskProviderProps> = ({ children }) => {
       setError(null);
       const updatedTask = await taskService.updateTask(id, data);
       setTasks(prev => prev.map(task => task._id === id ? updatedTask : task));
+      toast.success('Task updated successfully!', { id: 'task-operation' });
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to update task');
+      const errorMessage = err instanceof Error ? err.message : 'Failed to update task';
+      setError(errorMessage);
+      toast.error(errorMessage);
       throw err;
     } finally {
       setIsLoading(false);
@@ -96,8 +81,11 @@ export const TaskProvider: React.FC<TaskProviderProps> = ({ children }) => {
       setError(null);
       await taskService.deleteTask(id);
       setTasks(prev => prev.filter(task => task._id !== id));
+      toast.success('Task deleted successfully!', { id: 'task-operation' });
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to delete task');
+      const errorMessage = err instanceof Error ? err.message : 'Failed to delete task';
+      setError(errorMessage);
+      toast.error(errorMessage);
       throw err;
     } finally {
       setIsLoading(false);

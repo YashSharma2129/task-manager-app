@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import { Search, Warning } from '@mui/icons-material';
 import { TaskStatus } from '@/types';
-import { useTaskContext } from '@/contexts/TaskContext';
+import { useTaskContext } from '@/hooks/useTaskContext';
 import { TaskCard } from './TaskCard';
 import { ErrorAlert } from '@/components/common/ErrorAlert';
 import { SkeletonLoader } from '@/components/common/SkeletonLoader';

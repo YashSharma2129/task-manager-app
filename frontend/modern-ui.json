@@ -1,0 +1,18 @@
+{
+  "style": "default",
+  "path": "src/components/modern-ui",
+  "typescript": true,
+  "tailwind": false,
+  "framework": "vite",
+  "components": [
+    {
+      "name": "sonner",
+      "version": "latest",
+      "installedAt": "2025-10-01T04:53:25.006Z"
+    }
+  ],
+  "aliases": {
+    "cn": "@/lib/utils",
+    "hook": "@/hooks"
+  }
+}

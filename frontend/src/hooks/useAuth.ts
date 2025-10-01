@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 import { authService } from '@/api/authService';
 import type { User, LoginCredentials, SignupData } from '@/types';
 
@@ -40,7 +41,11 @@ export const useAuth = () => {
       const userData = await authService.getCurrentUser();
       setUser(userData);
       
+      toast.success('Login successful! Welcome back.', { id: 'auth-success' });
       navigate('/dashboard');
+    } catch (error) {
+      toast.error('Login failed. Please check your credentials.');
+      throw error;
     } finally {
       setIsLoading(false);
     }
@@ -50,7 +55,11 @@ export const useAuth = () => {
     try {
       setIsLoading(true);
       await authService.signup(data);
+      toast.success('Account created successfully! Please log in.', { id: 'auth-success' });
       navigate('/login');
+    } catch (error) {
+      toast.error('Account creation failed. Please try again.');
+      throw error;
     } finally {
       setIsLoading(false);
     }
@@ -60,6 +69,7 @@ export const useAuth = () => {
     setUser(null);
     setToken(null);
     localStorage.removeItem('token');
+    toast.success('Logged out successfully!', { id: 'auth-success' });
     navigate('/login');
   }, [navigate]);
 

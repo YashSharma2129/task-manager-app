@@ -29,7 +29,7 @@ import {
 } from '@mui/icons-material';
 import type { Task } from '@/types';
 import { TaskStatus } from '@/types';
-import { useTaskContext } from '@/contexts/TaskContext';
+import { useTaskContext } from '@/hooks/useTaskContext';
 import { formatDate, getTaskStatusColor, getTaskStatusLabel, isOverdue } from '@/lib/utils';
 import { ConfirmDialog } from '@/components/common/ConfirmDialog';
 
