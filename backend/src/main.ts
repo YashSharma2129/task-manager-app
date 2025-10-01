@@ -8,7 +8,7 @@ async function bootstrap() {
   
   const allowedOrigins = [
     'http://localhost:5173',
-    'https://task-beta.netlify.app/',
+    'https://task-beta.netlify.app',
     process.env.FRONTEND_URL || 'http://localhost:5173'
   ];
   
