@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "0ac9607e-dd55-463b-ab7f-441eff31f308",
+		"name": "Task_Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38406253"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"yash123\",\n  \"email\": \"yash@example.com\",\n  \"password\": \"123456\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"yash@example.com\",\n  \"password\": \"123456\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create_Task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OGRjMGIzYmUxMDhjMzI2ZTY0YWU2M2QiLCJlbWFpbCI6Inlhc2hAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTkyNTEyNjIsImV4cCI6MTc1OTI1NDg2Mn0.dYjERwegFLMCX5VNN3NSbQu0Q2Pb06zU03nxPdIQnPY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Finish Project\",\n  \"description\": \"Complete backend and frontend integration\",\n  \"status\": \"todo\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ALL_Tasks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OGRjMGIzYmUxMDhjMzI2ZTY0YWU2M2QiLCJlbWFpbCI6Inlhc2hAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTkyNTEyNjIsImV4cCI6MTc1OTI1NDg2Mn0.dYjERwegFLMCX5VNN3NSbQu0Q2Pb06zU03nxPdIQnPY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Finish Project\",\n  \"description\": \"Complete backend and frontend integration\",\n  \"status\": \"todo\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task:ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OGRjMGIzYmUxMDhjMzI2ZTY0YWU2M2QiLCJlbWFpbCI6Inlhc2hAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTkyNTEyNjIsImV4cCI6MTc1OTI1NDg2Mn0.dYjERwegFLMCX5VNN3NSbQu0Q2Pb06zU03nxPdIQnPY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Finish Project\",\n  \"description\": \"Complete backend and frontend integration\",\n  \"status\": \"todo\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/tasks/68dc0b8de108c326e64ae641",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						"68dc0b8de108c326e64ae641"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task_Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OGRjMGIzYmUxMDhjMzI2ZTY0YWU2M2QiLCJlbWFpbCI6Inlhc2hAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTkyNTEyNjIsImV4cCI6MTc1OTI1NDg2Mn0.dYjERwegFLMCX5VNN3NSbQu0Q2Pb06zU03nxPdIQnPY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"status\": \"completed\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/tasks/68dc0b8de108c326e64ae641",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						"68dc0b8de108c326e64ae641"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_Task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OGRjMGIzYmUxMDhjMzI2ZTY0YWU2M2QiLCJlbWFpbCI6Inlhc2hAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTkyNTEyNjIsImV4cCI6MTc1OTI1NDg2Mn0.dYjERwegFLMCX5VNN3NSbQu0Q2Pb06zU03nxPdIQnPY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"status\": \"completed\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/tasks/68dc0b8de108c326e64ae641",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						"68dc0b8de108c326e64ae641"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
