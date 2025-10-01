@@ -9,4 +9,14 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Get('health')
+  getHealth() {
+    return {
+      status: 'OK',
+      message: 'Task Manager API is running',
+      timestamp: new Date().toISOString(),
+      uptime: process.uptime()
+    };
+  }
 }
