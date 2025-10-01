@@ -7,7 +7,16 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   
   // Enable CORS
-  app.enableCors({ origin: 'http://localhost:5173', credentials: true });
+  const allowedOrigins = [
+    'http://localhost:5173', // Development frontend
+    'https://task-manager-app-frontend.onrender.com', // Production frontend (update this URL)
+    process.env.FRONTEND_URL || 'http://localhost:5173' // Environment variable for frontend URL
+  ];
+  
+  app.enableCors({ 
+    origin: allowedOrigins,
+    credentials: true 
+  });
   
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true,
