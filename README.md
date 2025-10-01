@@ -1,44 +1,42 @@
-# Task Manager - Full Stack Application
+# Task Manager Application
 
-Hey there! 👋 This is my take on the Full-Stack Development Intern assignment. I built a complete task management application that lets users sign up, log in, and manage their personal tasks. The app is built with modern technologies and includes some bonus features to make it more user-friendly.
+A full-stack task management application built for the Full-Stack Development Intern assignment. Users can sign up, log in, and manage their personal tasks with CRUD operations.
 
-## ✨ What I Built
+## Features
 
-**Core Features (Required):**
-- User registration and login with JWT authentication
-- Create, read, update, and delete tasks
-- Task status management (Todo, In Progress, Done)
-- Due date tracking for tasks
-- Secure API endpoints with proper authentication
+### Core Requirements
+- User authentication (signup/login) with JWT
+- Task CRUD operations (Create, Read, Update, Delete)
+- Task status management (todo, in-progress, done)
+- Due date tracking
+- User-specific task isolation
 
-**Bonus Features I Added:**
-- **Beautiful UI with Material-UI**: Clean, modern interface that looks professional
-- **Form Validation & Error Handling**: Real-time validation with helpful error messages
-- **Task Filtering & Sorting**: Filter tasks by status and sort by due date
-- **Search Functionality**: Search tasks by title and description
-- **Responsive Design**: Works perfectly on desktop, tablet, and mobile
-- **Loading States & User Feedback**: Smooth loading indicators and success/error messages
-- **Task Status Quick Actions**: One-click status changes with visual feedback
-- **Overdue Task Highlighting**: Tasks past their due date are highlighted in red
+### Additional Features
+- Material-UI for better UI/UX
+- Form validation and error handling
+- Task filtering and sorting
+- Search functionality
+- Responsive design
+- Toast notifications for user feedback
 
-## 🛠 Tech Stack & Why I Chose These
-
-I picked technologies that I'm comfortable with and that would help me build a solid, maintainable application quickly.
+## Tech Stack
 
 ### Backend
-- **NestJS** - I love how it structures Node.js apps with decorators and modules, similar to Angular
-- **MongoDB + Mongoose** - NoSQL is perfect for this type of app, and Mongoose makes it easy to work with
-- **JWT** - Industry standard for authentication, stateless and secure
-- **bcryptjs** - Essential for password security
-- **TypeScript** - Can't live without type safety, especially in larger projects
+- **NestJS** - Node.js framework with TypeScript
+- **MongoDB** - NoSQL database
+- **Mongoose** - MongoDB object modeling
+- **JWT** - JSON Web Tokens for authentication
+- **bcryptjs** - Password hashing
+- **TypeScript** - Type safety
 
 ### Frontend
-- **React 19** - Latest React with great performance improvements
-- **TypeScript** - Same reason as backend, type safety is crucial
-- **Material-UI (MUI)** - Gives me a professional look without spending time on custom CSS
-- **React Hook Form + Zod** - Best combo for form handling and validation
-- **React Router** - Standard for React navigation
-- **Axios** - More features than fetch, better error handling
+- **React** - Frontend framework
+- **TypeScript** - Type safety
+- **Material-UI** - UI component library
+- **React Hook Form** - Form handling
+- **Zod** - Schema validation
+- **React Router** - Client-side routing
+- **Axios** - HTTP client
 
 ## 📁 Project Structure
 
@@ -326,62 +324,44 @@ Authorization: Bearer <your-jwt-token>
 HTTP 200 OK (no body)
 ```
 
-## 🎨 UI/UX Features
+## Development Notes
 
-I focused on making the app look professional and be easy to use:
+- Used TypeScript for type safety
+- Implemented proper error handling
+- Used custom hooks for state management
+- Added form validation with Zod
+- Implemented responsive design with Material-UI
 
-- **Material-UI Design**: Clean, modern interface that looks professional
-- **Responsive Layout**: Works perfectly on desktop, tablet, and mobile
-- **Form Validation**: Real-time validation with helpful error messages using Zod
-- **Loading States**: Smooth loading indicators so users know what's happening
-- **Error Handling**: User-friendly error messages instead of technical jargon
-- **Task Cards**: Clean, organized task display with all important info visible
-- **Status Indicators**: Color-coded task status (red for overdue, green for done, etc.)
-- **Quick Actions**: One-click status changes and easy edit/delete buttons
-- **Search & Filter**: Easy task discovery with real-time search
-- **Overdue Highlighting**: Tasks past their due date are clearly marked
+## Assumptions and Decisions
 
-## 🔧 Development Approach
+- Used MongoDB instead of PostgreSQL/MySQL for faster development
+- Implemented JWT authentication instead of sessions for stateless API
+- Used Material-UI for quick UI development instead of custom CSS
+- Added toast notifications for better user experience
+- Implemented client-side routing for SPA experience
+- Used TypeScript throughout for type safety
 
-### Code Quality & Best Practices
+## Deployment
 
-I made sure to write clean, maintainable code:
-- **TypeScript**: Full type safety throughout the entire stack
-- **ESLint**: Code linting to catch potential issues
-- **Custom Hooks**: Reusable logic for auth and task management
-- **Error Boundaries**: Graceful error handling that doesn't crash the app
-- **API Client**: Centralized HTTP client with automatic token handling
-- **Form Validation**: Using Zod schemas for both frontend and backend validation
+### Live Demo
+- **Frontend**: https://task-beta.netlify.app/login
+- **Backend**: https://task-manager-app-e27v.onrender.com
 
-### Architecture Decisions
+### Local Deployment
 
-- **Modular Structure**: Separated concerns with clear module boundaries
-- **Custom Hooks**: `useAuth` and `useTasks` for state management
-- **Service Layer**: Clean API services that handle all backend communication
-- **Type Safety**: Shared types between frontend and backend
-- **Error Handling**: Consistent error handling patterns throughout the app
-
-## 🚀 Deployment
-
-### Backend Deployment
-
-1. **Build the application:**
+**Backend:**
 ```bash
 cd backend
 yarn build
-```
-
-2. **Start the production server:**
-```bash
 yarn start
 ```
 
-### Frontend Deployment
-
- **Build the application:**
+**Frontend:**
 ```bash
 cd frontend
 yarn build
+# Serve the dist folder with any static server
 ```
+
 
 
